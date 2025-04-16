@@ -1,0 +1,278 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Login SPA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Logo fixa no background -->
+    <div class="background-logo">
+        <img src="logo.png" alt="Logo do Sistema">
+    </div>
+
+    <!-- Página de Login -->
+    <section id="login-page" class="page active-page">
+        <div class="container">
+            <div class="form login-form">
+                <h2 class="title">Login</h2>
+                <div id="login-message" class="message"></div>
+                <div class="input-group">
+                    <input type="text" id="login-email" required placeholder=" ">
+                    <label for="login-email">E-mail</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" required placeholder=" ">
+                    <label for="login-password">Senha</label>
+                    <span class="toggle-password" onclick="togglePassword('login-password')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5C5 5 1 12 1 12C1 12 5 19 12 19C19 19 23 12 23 12C23 12 19 5 12 5Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <button class="btn" id="login-btn">
+                    <div class="spinner"></div>
+                    <span class="btn-text">Entrar</span>
+                </button>
+                <div class="links">
+                    <a href="#" class="nav-link" data-page="forgot-password">Esqueci a senha</a>
+                    <a href="#" class="nav-link" data-page="register">Registre-se</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Página de Registro -->
+    <section id="register-page" class="page">
+        <div class="container">
+            <div class="form">
+                <button class="back-btn nav-link" data-page="login" title="Voltar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <h2 class="title">Registre-se</h2>
+                <div id="signup-message" class="message"></div>
+                <div class="input-group">
+                    <input type="text" id="signup-name" required placeholder=" ">
+                    <label for="signup-name">Nome Completo</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="signup-email" required placeholder=" ">
+                    <label for="signup-email">E-mail</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signup-password" required placeholder=" " minlength="6">
+                    <label for="signup-password">Senha (mínimo 6 caracteres)</label>
+                    <span class="toggle-password" onclick="togglePassword('signup-password')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5C5 5 1 12 1 12C1 12 5 19 12 19C19 19 23 12 23 12C23 12 19 5 12 5Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signup-confirm-password" required placeholder=" ">
+                    <label for="signup-confirm-password">Confirme a Senha</label>
+                    <span class="toggle-password" onclick="togglePassword('signup-confirm-password')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5C5 5 1 12 1 12C1 12 5 19 12 19C19 19 23 12 23 12C23 12 19 5 12 5Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <button class="btn" id="signup-btn">
+                    <div class="spinner"></div>
+                    <span class="btn-text">Registrar</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Página de Recuperação de Senha -->
+    <section id="forgot-password-page" class="page">
+        <div class="container">
+            <div class="form">
+                <button class="back-btn nav-link" data-page="login" title="Voltar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <h2 class="title">Recuperar Senha</h2>
+                <div id="forgot-message" class="message"></div>
+                <div class="input-group">
+                    <input type="email" id="forgot-email" required placeholder=" ">
+                    <label for="forgot-email">E-mail</label>
+                </div>
+                <button class="btn" id="forgot-btn">
+                    <div class="spinner"></div>
+                    <span class="btn-text">Enviar Link</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Page -->
+    <section id="home-page" class="page">
+        <header>
+            <nav>
+                <div class="header-content">
+                    <span id="welcome-message"></span>
+                    <button id="logout-btn" class="nav-link" data-page="login">Sair</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="welcome-section">
+                <h1>Bem-vindo à sua conta!</h1>
+                <p>Você está logado no sistema Santa Casa.</p>
+                <div class="dashboard">
+                    <div class="card nav-link" data-page="central1">
+                        <h3>Central 1</h3>
+                        <p>Área primária</p>
+                    </div>
+                    <div class="card nav-link" data-page="central2">
+                        <h3>Central 2</h3>
+                        <p>Área secundária</p>
+                    </div>
+                    <div class="card nav-link" data-page="central3">
+                        <h3>Central 3</h3>
+                        <p>Área complementar</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <!-- Páginas das Centrais -->
+    <section id="central1-page" class="page">
+        <header>
+            <nav>
+                <div class="header-content">
+                    <button class="nav-link" data-page="home">Voltar</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="central-section">
+                <h1>Central 1</h1>
+                <div class="options-grid">
+                    <button class="option-btn nav-link" data-page="chamada-central1">Chamada</button>
+                    <button class="option-btn nav-link" data-page="monitora-central1">Monitora</button>
+                    <button class="option-btn nav-link" data-page="localiza-central1">Localiza</button>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <!-- Página de Chamada -->
+    <section id="chamada-central1-page" class="page">
+        <header>
+            <nav>
+                <div class="header-content">
+                    <button class="nav-link" data-page="central1">Voltar</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="content-section">
+                <h1>Chamada - Central 1</h1>
+                <p>Funcionalidade de chamada ativa</p>
+                <div class="options-grid">
+                    <button class="option-btn">Iniciar Chamada</button>
+                    <button class="option-btn">Histórico</button>
+                    <button class="option-btn">Configurações</button>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <!-- Página de Monitora -->
+    <section id="monitora-central1-page" class="page">
+        <header>
+            <nav>
+                <div class="header-content">
+                    <button class="nav-link" data-page="central1">Voltar</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="content-section">
+                <h1>Monitora - Central 1</h1>
+                <p>Funcionalidade de monitoramento ativa</p>
+                <div class="options-grid">
+                    <button class="option-btn">Ativar Monitoramento</button>
+                    <button class="option-btn">Relatórios</button>
+                    <button class="option-btn">Alertas</button>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <!-- Página de Localiza -->
+    <section id="localiza-central1-page" class="page">
+        <header>
+            <nav>
+                <div class="header-content">
+                    <button class="nav-link" data-page="central1">Voltar</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="content-section">
+                <h1>Localiza - Central 1</h1>
+                <p>Funcionalidade de localização ativa</p>
+                <div class="options-grid">
+                    <button class="option-btn">Buscar Localização</button>
+                    <button class="option-btn">Mapa</button>
+                    <button class="option-btn">Histórico</button>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <!-- Páginas das outras centrais (similares) -->
+    <section id="central2-page" class="page">
+        <header>
+            <nav>
+                <div class="header-content">
+                    <button class="nav-link" data-page="home">Voltar</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="central-section">
+                <h1>Central 2</h1>
+                <div class="options-grid">
+                    <button class="option-btn nav-link" data-page="chamada-central2">Chamada</button>
+                    <button class="option-btn nav-link" data-page="monitora-central2">Monitora</button>
+                    <button class="option-btn nav-link" data-page="localiza-central2">Localiza</button>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <section id="central3-page" class="page">
+        <header>
+            <nav>
+                <div class="header-content">
+                    <button class="nav-link" data-page="home">Voltar</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="central-section">
+                <h1>Central 3</h1>
+                <div class="options-grid">
+                    <button class="option-btn nav-link" data-page="chamada-central3">Chamada</button>
+                    <button class="option-btn nav-link" data-page="monitora-central3">Monitora</button>
+                    <button class="option-btn nav-link" data-page="localiza-central3">Localiza</button>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
