@@ -1,2 +1,2 @@
 # html-css
-projects that i made to study html and css
+projects using html and css
